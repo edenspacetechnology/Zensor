@@ -1,0 +1,16 @@
+{
+  "title": "Zensor",
+  "name": "zensor",
+  "version": "0.0.1",
+  "description": "Censors elements with detected text",
+  "main": "index.js",
+  "author": "hanazon0",
+  "engines": {
+    "firefox": ">=38.0a1",
+    "fennec": ">=38.0a1"
+  },
+  "license": "MIT",
+  "keywords": [
+    "jetpack"
+  ]
+}
