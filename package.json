@@ -12,5 +12,8 @@
   "license": "MIT",
   "keywords": [
     "jetpack"
-  ]
+  ],
+  "dependencies": {
+    "async": "^1.5.2"
+  }
 }

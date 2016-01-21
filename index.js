@@ -1,9 +1,15 @@
-var self = require('sdk/self');
+var tabs = require('sdk/tabs')
+var self = require("sdk/self");
 
-// a dummy function, to show how tests work.
-// to see how to test this function, look at test/test-index.js
-function dummy(text, callback) {
-  callback(text);
-}
-
-exports.dummy = dummy;
+tabs.on('activate',function(tab){
+	tab.on('ready',function(tab){
+		var hiworker = tab.attach({
+			contentScriptFile: [require.resolve("./node_modules/async/dist/async.js"),self.data.url("nonono.js")]
+		})
+			
+		hiworker.port.emit("contentReady");	
+		
+		
+		
+	})
+})
