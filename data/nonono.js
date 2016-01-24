@@ -4,37 +4,29 @@ var cait = /caitlyn\sjenner/i
 self.port.on("contentReady",function(){
 	var searchElements = document.getElementsByClassName("search-result")
 	var entryElements = document.getElementsByClassName("entry");
-	//var searchCount = 0
-	async.each(searchElements,function(elem){
-		if (elem.textContent.match(bruce) || elem.textContent.match(cait) ){
-			//elem.style.display = 'none';
-			elem.textContent = "Blockedddddddddddddddd by /u/livebeta "
-			//searchCount++;
-			//console.log(searchCount + " triggered words were blocked")	
-		}
-		
+	function fE(array){
+		forEach(array,function(current,index,array){
+			if (current.textContent.match(bruce) || current.textContent.match(cait) ){
+				//elem.style.display = 'none';
+				current.textContent = "Blockedddddddddddddddd by /u/livebeta "
+				//searchCount++;
+				//console.log(searchCount + " triggered words were blocked")	
+			}
+			var done = this.async()
+			setTimeout(function(){
+				done();
+			},40);
+			
 
-	},function(err){
-		if(err){
-			alert("Async operation went oops!")	;
-		}
-		
-	});
-	async.each(entryElements,function(elem){
-		if (elem.textContent.match(bruce) || elem.textContent.match(cait) ){
-			//elem.style.display = 'none';
-			elem.textContent = "Blockedddddddddddddddd by /u/livebeta "
-			//searchCount++;
-			//console.log(searchCount + " triggered words were blocked")	
-		}
-		
+		},function(notAborted,arr){
+			if(!notAborted){
+				alert("Async operation went oops!")	;
+			}
+			
+		});
+	}
 
-	},function(err){
-		if(err){
-			alert("Async operation went oops!")	;
-		}
-		
-	});
-
+	fE(searchElements);
+	fE(entryElements);
 })
 
